@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 人格测试</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MBTI 人格测试</h1>
+            <p class="subtitle">探索你的性格类型，了解真实的自己</p>
+        </header>
+        
+        <main>
+            <div id="start-screen" class="screen active">
+                <div class="intro-content">
+                    <div class="mbti-illustration">
+                        <div class="mbti-grid">
+                            <div class="mbti-cell">E</div>
+                            <div class="mbti-cell">I</div>
+                            <div class="mbti-cell">S</div>
+                            <div class="mbti-cell">N</div>
+                            <div class="mbti-cell">T</div>
+                            <div class="mbti-cell">F</div>
+                            <div class="mbti-cell">J</div>
+                            <div class="mbti-cell">P</div>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-text">
+                        <h2>欢迎参加MBTI人格测试</h2>
+                        <p>MBTI是迈尔斯-布里格斯类型指标(Myers-Briggs Type Indicator)的缩写，是一种流行的性格类型评估工具。</p>
+                        <p>本测试共有<strong>93个问题</strong>，完成后你将了解自己的四字母MBTI类型。</p>
+                        
+                        <div class="dimension-explanation">
+                            <div class="dimension">
+                                <div class="dimension-title">
+                                    <i class="fas fa-users"></i> 能量方向
+                                </div>
+                                <div class="dimension-types">
+                                    <span class="type-label">E - 外向</span>
+                                    <span class="type-label">I - 内向</span>
+                                </div>
+                            </div>
+                            
+                            <div class="dimension">
+                                <div class="dimension-title">
+                                    <i class="fas fa-brain"></i> 认知方式
+                                </div>
+                                <div class="dimension-types">
+                                    <span class="type-label">S - 实感</span>
+                                    <span class="type-label">N - 直觉</span>
+                                </div>
+                            </div>
+                            
+                            <div class="dimension">
+                                <div class="dimension-title">
+                                    <i class="fas fa-balance-scale"></i> 决策方式
+                                </div>
+                                <div class="dimension-types">
+                                    <span class="type-label">T - 思考</span>
+                                    <span class="type-label">F - 情感</span>
+                                </div>
+                            </div>
+                            
+                            <div class="dimension">
+                                <div class="dimension-title">
+                                    <i class="fas fa-calendar-alt"></i> 生活方式
+                                </div>
+                                <div class="dimension-types">
+                                    <span class="type-label">J - 判断</span>
+                                    <span class="type-label">P - 认知</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="start-actions">
+                    <p class="time-estimate"><i class="far fa-clock"></i> 测试时间约 15-20 分钟</p>
+                    <button id="start-btn" class="btn">开始测试 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div id="test-screen" class="screen">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div id="question-container">
+                    <h2 id="question-text"></h2>
+                    <div class="options" id="options-container"></div>
+                </div>
+                <div class="navigation">
+                    <button id="prev-btn" class="btn nav-btn">上一题</button>
+                    <span id="question-counter">1/93</span>
+                </div>
+            </div>
+
+            <div id="result-screen" class="screen">
+                <h2>您的MBTI类型是：<span id="mbti-type"></span></h2>
+                <div class="chart-container">
+                    <div class="chart-row">
+                        <div class="chart-label">E</div>
+                        <div class="chart-bar">
+                            <div id="e-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="e-value">0</div>
+                        <div class="chart-label">I</div>
+                        <div class="chart-bar">
+                            <div id="i-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="i-value">0</div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="chart-label">S</div>
+                        <div class="chart-bar">
+                            <div id="s-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="s-value">0</div>
+                        <div class="chart-label">N</div>
+                        <div class="chart-bar">
+                            <div id="n-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="n-value">0</div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="chart-label">T</div>
+                        <div class="chart-bar">
+                            <div id="t-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="t-value">0</div>
+                        <div class="chart-label">F</div>
+                        <div class="chart-bar">
+                            <div id="f-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="f-value">0</div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="chart-label">J</div>
+                        <div class="chart-bar">
+                            <div id="j-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="j-value">0</div>
+                        <div class="chart-label">P</div>
+                        <div class="chart-bar">
+                            <div id="p-bar" class="bar-fill"></div>
+                        </div>
+                        <div class="chart-value" id="p-value">0</div>
+                    </div>
+                </div>
+                <button id="restart-btn" class="btn">重新测试</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 MBTI人格测试 | 基于迈尔斯-布里格斯类型指标</p>
+        </footer>
+    </div>
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

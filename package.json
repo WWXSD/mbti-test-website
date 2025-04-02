@@ -1,0 +1,22 @@
+{
+  "name": "mbti-test",
+  "version": "1.0.0",
+  "description": "A simple MBTI personality test website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "mbti",
+    "personality",
+    "test"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+} 

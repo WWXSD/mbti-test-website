@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: #1a73e8;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+header h1::after {
+    content: '';
+    display: block;
+    width: 70%;
+    height: 3px;
+    background: linear-gradient(to right, #1a73e8, transparent);
+    margin: 10px auto 0;
+}
+
+.subtitle {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.screen {
+    display: none;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.screen.active {
+    display: block;
+}
+
+#start-screen {
+    text-align: center;
+}
+
+.intro-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.mbti-illustration {
+    flex: 0 0 200px;
+    margin: 0 auto;
+}
+
+.mbti-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.mbti-cell {
+    background: linear-gradient(135deg, #1a73e8, #4285f4);
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(26, 115, 232, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mbti-cell:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.3);
+}
+
+.intro-text {
+    flex: 1;
+    text-align: left;
+    min-width: 300px;
+}
+
+.intro-text h2 {
+    color: #1a73e8;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.intro-text p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.dimension-explanation {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 15px;
+}
+
+.dimension {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #1a73e8;
+}
+
+.dimension-title {
+    font-weight: bold;
+    color: #1a73e8;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dimension-title i {
+    font-size: 1.1rem;
+}
+
+.dimension-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.type-label {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.start-actions {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.time-estimate {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.btn {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
+}
+
+.btn:hover {
+    background-color: #0d62d1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(26, 115, 232, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(26, 115, 232, 0.4);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, #1a73e8, #4285f4);
+    border-radius: 4px;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+#question-container {
+    margin-bottom: 30px;
+}
+
+#question-text {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#question-counter {
+    font-weight: bold;
+    color: #666;
+    padding: 10px 15px;
+    background-color: #f0f7ff;
+    border-radius: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option {
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: white;
+    font-size: 1.05rem;
+}
+
+.option:hover {
+    background-color: #f0f7ff;
+    border-color: #1a73e8;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.option.selected {
+    background-color: #e8f0fe;
+    border-color: #1a73e8;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Add animation for selection */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.option.selected {
+    animation: pulse 0.3s ease;
+}
+
+.chart-container {
+    margin: 30px 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chart-label {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #1a73e8;
+    font-size: 1.2rem;
+}
+
+.chart-bar {
+    flex-grow: 1;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    margin: 0 10px;
+    overflow: hidden;
+    max-width: 300px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #1a73e8, #4285f4);
+    transition: width 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.chart-value {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .intro-text {
+        text-align: center;
+    }
+    
+    .dimension-explanation {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+} 
